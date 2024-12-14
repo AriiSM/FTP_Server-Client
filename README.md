@@ -1,7 +1,3 @@
-Here's a structured README for your GitHub project **FTP_Server-Client**:
-
----
-
 # FTP_Server-Client
 
 ## 📁 **Simple FTP Server-Client**  
@@ -37,6 +33,13 @@ This project includes support for the following FTP commands:
 
 ---
 
+## 🖼️ **Build Result Screenshot**  
+![build](https://github.com/user-attachments/assets/325c4684-34e6-4a6a-849f-22ba5cbc2059)
+
+> *This screenshot displays the build results and test interactions on the terminal.*
+
+---
+
 ### Compile the project
 Navigate to the project directory and compile both the server and client.
 
@@ -55,12 +58,3 @@ gcc -o client client.c
 ```bash
 ./client "IP ADDRESS"
 ```
-
----
-
-## 🖼️ **Build Result Screenshot**  
-![build](https://github.com/user-attachments/assets/325c4684-34e6-4a6a-849f-22ba5cbc2059)
-
-> *This screenshot displays the build results and test interactions on the terminal.*
-
----
