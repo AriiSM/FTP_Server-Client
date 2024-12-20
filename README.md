@@ -19,17 +19,19 @@ The default transfer type mode is **binary**.
 ## ⚙️ **Available FTP Commands**  
 This project includes support for the following FTP commands:
 
-- `CWD`  - Change Working Directory  
-- `HELP`  - Provide a list of available commands  
+- `HELP`  - List available commands  
+- `USER`  - Authenticate username  
+- `PASS`  - Authenticate password  
+- `PASV`  - Enable passive mode  
+- `PWD`   - Display current directory  
+- `CWD`   - Change directory  
+- `MKD`   - Create a directory  
 - `LIST`  - List files and directories  
-- `MKD`   - Create a new directory  
-- `MODE`  - Set transfer mode (default is binary)  
-- `PASS`  - User password authentication  
-- `PASV`  - Set passive mode  
-- `PWD`   - Print Working Directory  
-- `QUIT`  - Terminate the connection  
-- `RETR`  - Retrieve files from the server  
-- `RMD`   - Remove directories  
+- `RMD`   - Remove a directory  
+- `TYPE`  - Set file transfer type  
+- `RETR`  - Download a file  
+- `STOR`  - Upload a file  
+- `QUIT`  - Disconnect from the server  
 
 ---
 
@@ -40,19 +42,17 @@ This project includes support for the following FTP commands:
 
 ---
 
-### Compile the project
-Navigate to the project directory and compile both the server and client.
+### **Important Notes**  
+- The server must have a directory named `server_data` in the same directory as the executable. (It might not be created automatically.)  
+- The client must have a directory named `data` in the same directory as the executable.  
+- The project must be compiled before running.  
 
-```bash
-cd FTP_Server-Client
-gcc -o server server.c -pthread
-gcc -o client client.c
-```
+### **Run the Project**  
+Navigate to the project directory and compile both the server and client.  
 
-### Run the FTP Server
+### **Run the FTP Server**  
 ```bash
-./server
-```
+sudo ./server
 
 ### Run the FTP Client
 ```bash
