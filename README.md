@@ -53,6 +53,7 @@ Navigate to the project directory and compile both the server and client.
 ### **Run the FTP Server**  
 ```bash
 sudo ./server
+```
 
 ### Run the FTP Client
 ```bash
