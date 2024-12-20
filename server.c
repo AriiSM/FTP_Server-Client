@@ -448,8 +448,9 @@ void execute_command(char *tokens[], int tokens_count, char *response,
           case 24:  // HELP
                snprintf(
                    response, BUFFER_SIZE,
-                   "214-The following commands are recognized: \n CWD  HELP  LIST  MKD  MODE\nPASS  PASV  PWD  QUIT  RETR\nRMD\n214 Help OK\r\n");
-               break;
+                   //"214-The following commands are recognized: \nHELP  CWD  LIST  MKD  STOR\nPASS  PASV  PWD  QUIT  RETR\nRMD\n214 Help OK\r\n");
+             "COMMANDS\nHELP\nUsage: HELP\nDescription: Lists available commands.\nUSER\nUsage: USER <username>\nDescription: Sends the username.\nPASS\nUsage: PASS <password>\nDescription: Sends the password.\nPASV\nUsage: PASV\nDescription: Switches to passive mode for data transfer.\nPWD\nUsage: PWD\nDescription: Displays the current directory.\nCWD\nUsage: CWD <directory>\nDescription: Changes the current directory.\nMKD\nUsage: MKD <directory>\nDescription: Creates a new directory at the current location.\nLIST\nUsage: LIST\nDescription: Lists files and directories in the current directory.\nRMD\nUsage: RMD <directory>\nDescription: Removes the specified directory (must be empty).\nTYPE\nUsage: TYPE <type>\nWarning: Not fully implemented, only supports binary mode.\nDescription: Sets the file transfer type (e.g., ASCII or binary).\nRETR\nUsage: RETR <filename>\nDescription: Downloads the file from the server.\nSTOR\nUsage: STOR <filename>\nDescription: Uploads a file.\nQUIT\nUsage: QUIT\nDescription: Disconnects\r\n");
+          break;
           case 26:  // PWD
                snprintf(response, BUFFER_SIZE, "257 \"%.1000s\"\r\n",
                         current_dir);
@@ -514,7 +515,8 @@ void handle_client(int client_sock) {
      char *tokens[MAX_ARGUMENTS];
      int tokens_count = 0;
 
-     snprintf(response, BUFFER_SIZE, "220 FTP Server Ready\r\n");
+     //snprintf(response, BUFFER_SIZE, "220 FTP Server Ready\r\n");
+     snprintf(response, BUFFER_SIZE, "220 FTP Server Ready\nRun HELP for all available commands\n\nWARNING!\n--------\nFiles:\nServer must have a directory named server_data placed inside the same directory(it might not be created by the server automatically).\nClient must have a directory named data placed inside the same directory.\nUsers:\nA user is automatically logged in as anonymous, once they connect.\nUsers are: user1 (password1) / user2 (password2)\nAll users (even anonymous) are allowed in server_data/public and all its subdirectories\nOnce a user has logged in, they can access server_data/<username> as well as server_data/public.\nUsers are not allowed to go back to root (/server_data) once they have entered a subdirectory(/public || /<username>\r\n");
      send(client_sock, response, strlen(response), 0);
 
      strncpy(current_dir, ROOT_DIR, BUFFER_SIZE);

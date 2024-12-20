@@ -4,8 +4,8 @@
 A simple FTP server and client implementation for **Linux** in C, developed as part of the **"Securitatea Software"** course at **Universitatea Babeș-Bolyai**.
 
 ### 📝 **Collaborators**  
-- **Ruse Teodor**  
-- **Stan Ariana**
+- **Stan Ariana - Client**
+- **Ruse Teodor - Server**  
 
 ---
 
